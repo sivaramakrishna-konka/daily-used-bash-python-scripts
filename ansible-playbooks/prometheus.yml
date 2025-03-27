@@ -1,0 +1,63 @@
+wget https://github.com/prometheus/prometheus/releases/download/v3.2.1/prometheus-3.2.1.linux-amd64.tar.gz /home/ec2-user
+tar -xvzf prometheus-3.2.1.linux-amd64.tar.gz
+mv prometheus-3.2.1.linux-amd64 prometheus
+
+sudo nano /etc/systemd/system/prometheus.service
+[Unit]
+Description=Prometheus Monitoring System
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+Type=simple
+ExecStart=/home/ec2-user/prometheus/prometheus \
+    --config.file=/home/ec2-user/prometheus/prometheus.yml \
+    --storage.tsdb.path=/home/ec2-user/prometheus/data \
+    --web.listen-address=0.0.0.0:9090
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+mkdir -p /home/ec2-user/prometheus/data
+chown -R ec2-user:ec2-user /home/ec2-user/prometheus/data
+
+sudo systemctl daemon-reload
+sudo systemctl enable prometheus
+sudo systemctl start prometheus
+
+wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
+
+sudo nano /etc/systemd/system/node-exporter.service
+[Unit]
+Description=Prometheus Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+Type=simple
+ExecStart=/home/ec2-user/node_exporter/node_exporter \
+    --web.listen-address=0.0.0.0:9100
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl daemon-reload
+sudo systemctl enable node-exporter
+sudo systemctl enable node-exporter
+sudo systemctl start node-exporter
+
+promtool check config prometheus.yml
+sudo systemctl restart prometheus
+
+# ports prometheus = 9090,node_exporter=9100
+
+
+
