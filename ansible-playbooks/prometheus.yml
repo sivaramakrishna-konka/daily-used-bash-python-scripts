@@ -30,7 +30,9 @@ sudo systemctl enable prometheus
 sudo systemctl start prometheus
 
 wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
-
+download this in /home/ec2-user
+tar-xvzf node_exporter-1.9.0.linux-amd64.tar.gz
+sudo mv node_exporter-1.9.0.linux-amd64 node_exporter
 sudo nano /etc/systemd/system/node-exporter.service
 [Unit]
 Description=Prometheus Node Exporter
@@ -51,8 +53,8 @@ WantedBy=multi-user.target
 
 sudo systemctl daemon-reload
 sudo systemctl enable node-exporter
-sudo systemctl enable node-exporter
 sudo systemctl start node-exporter
+sudo systemctl status node-exporter
 
 promtool check config prometheus.yml
 sudo systemctl restart prometheus
