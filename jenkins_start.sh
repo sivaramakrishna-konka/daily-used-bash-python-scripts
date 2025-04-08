@@ -3,8 +3,8 @@
 # Define Instance Details
 declare -A NODES
 NODES=(
-    ["jc.konkas.tech"]="i-0f3f84e59f33bb915"
-    ["jn.konkas.tech"]="i-0c659aa0c176ed85e"
+    ["jenkins.konkas.tech"]="i-0c9b8030a62fe5c9b"
+    ["runner.konkas.tech"]="i-0334c66866af327db"
 )
 
 HOSTED_ZONE_ID="Z011675617HENPLWZ1EJC"

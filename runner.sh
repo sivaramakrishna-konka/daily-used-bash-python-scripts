@@ -1,6 +1,6 @@
 #!/bin/bash
 HOSTED_ZONE_ID="Z011675617HENPLWZ1EJC"
-INSTANCE_ID="i-07d2224f36fb694a5"
+INSTANCE_ID="i-0334c66866af327db"
 DNS_NAME="runner.konkas.tech"
 read -p "Please Enter Desired Instance Type: " NEW_INSTANCE_TYPE
 
