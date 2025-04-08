@@ -1,7 +1,7 @@
 #!/bin/bash
 HOSTED_ZONE_ID="Z011675617HENPLWZ1EJC"
-INSTANCE_ID="i-06908b0b2957f3e79"
-DNS_NAME="monitor.konkas.tech"
+INSTANCE_ID="i-03468ec9fdd195e15"
+DNS_NAME="monitoring.konkas.tech"
 read -p "Please Enter Desired Instance Type: " NEW_INSTANCE_TYPE
 
 # Check the current state of the EC2 instance
