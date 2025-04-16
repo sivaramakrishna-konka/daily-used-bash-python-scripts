@@ -5,6 +5,7 @@ declare -A NODES
 NODES=(
     ["jenkins.konkas.tech"]="i-0c9b8030a62fe5c9b"
     ["runner.konkas.tech"]="i-0334c66866af327db"
+    ["sonarqube.konkas.tech"]="i-0d51f59d037663b7e"
 )
 
 HOSTED_ZONE_ID="Z011675617HENPLWZ1EJC"
