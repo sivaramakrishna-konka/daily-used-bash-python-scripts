@@ -1,8 +1,11 @@
 #!/bin/bash
 
-HOSTED_ZONE_ID="Z04410211MZ57SQOXFNI3"  
-RECORD_NAME="docker.bapatlas.site"
 
+echo "Please enter the DNS record name (e.g., sonarqube.konkas.tech): "
+read NAME
+
+HOSTED_ZONE_ID="Z011675617HENPLWZ1EJC"  
+RECORD_NAME="${NAME}.konkas.tech"
 
 # Step 1: Prompt for the instance type
 echo "Please enter the instance type (e.g., t3a.medium, t3.medium.......): "
