@@ -72,7 +72,7 @@ if [ "$INSTANCE_ID" == "None" ] || [ -z "$INSTANCE_ID" ]; then
     --user-data file://docker-installation.sh \
     $INSTANCE_MARKET_OPTIONS \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$INSTANCE_TAG}]" \
-    --block-device-mappings 'DeviceName=/dev/xvda,Ebs={VolumeSize=50,VolumeType=gp3,DeleteOnTermination=true}' \
+    --block-device-mappings 'DeviceName=/dev/xvda,Ebs={VolumeSize=20,VolumeType=gp3,DeleteOnTermination=true}' \
     --query 'Instances[0].InstanceId' \
     --output text)
 
